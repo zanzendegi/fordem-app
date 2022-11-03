@@ -1,6 +1,10 @@
 name: GitHub Release
 
-on: push
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch: {}
 
 jobs:
   version:
@@ -85,7 +89,7 @@ jobs:
       - name: Build Web
         run: flutter build web
       - name: Upload Artifacts
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v1
         with:
           path: build/web/
 #      - name: Upload app bundle
