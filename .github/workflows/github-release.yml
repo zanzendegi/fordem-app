@@ -1,6 +1,10 @@
 name: GitHub Release
 
-on: push
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch: {}
 
 jobs:
   version:
