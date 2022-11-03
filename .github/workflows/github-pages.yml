@@ -1,4 +1,4 @@
-name: GitHub Release
+name: GitHub Pages
 
 on:
     push:
@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   version:
-    name: Create version number
+    name: Version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -43,7 +43,7 @@ jobs:
           name: gitversion
           path: version.txt
   build:
-    name: Build and Create release
+    name: Build
     needs: [version]
     runs-on: ubuntu-latest
     steps:
