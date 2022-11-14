@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // Screens
-import '../pages/home/screens/home_screen.dart';
-import '../pages/profile/screens/profile_screen.dart';
+import 'package:app/pages/home/screens/home_screen.dart';
+import 'package:app/pages/profile/screens/profile_screen.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -33,10 +33,12 @@ class _BottomBarState extends State<BottomBar> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _page,
         iconSize: 28,
-        onTap: updatePage, 
+        onTap: updatePage,
         items: const [
-          BottomNavigationBarItem(icon: HomeScreen.icon, label: HomeScreen.label),
-          BottomNavigationBarItem(icon: ProfileScreen.icon, label: ProfileScreen.label)
+          BottomNavigationBarItem(
+              icon: HomeScreen.icon, label: HomeScreen.label),
+          BottomNavigationBarItem(
+              icon: ProfileScreen.icon, label: ProfileScreen.label)
         ],
       ),
     );

@@ -14,15 +14,9 @@ class FordemApp extends StatelessWidget {
       title: 'ForDem',
       theme: ThemeData(useMaterial3: true),
       home: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(60),
-          child: AppBar(
-            title: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [Text("Hello World")],
-            ),
-          ),
+        appBar: AppBar(
+          title: const Text('Hello World'),
+          centerTitle: true,
         ),
         body: const BottomBar(),
       ),
