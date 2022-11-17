@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:app/cryptography/keypair.dart';
 import 'package:grpc/grpc.dart';
 import 'package:protobuf/protobuf.dart';
@@ -19,7 +21,10 @@ class DigitalSignatureInterceptor extends ClientInterceptor {
 
     if (request is GeneratedMessage) {
       final message = request.writeToBuffer();
-      final signature = keyPair.generateSignature(message);
+      final signature = keyPair.generateSignature(message.isNotEmpty
+          ? message
+          : Uint8List.fromList([77, 65, 71, 73, 67]));
+
       final publickey = keyPair.publicKey.value;
 
       final signatureHex = HEX.encoder.convert(signature);
