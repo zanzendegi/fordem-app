@@ -61,22 +61,9 @@ jobs:
           path: version1.txt
       - name: Update version in YAML
         run: sed -i 's/99.99.99+99/${{ steps.version.outputs.content }}+${{ github.run_number }}/g' pubspec.yaml
-      - name: Update KeyStore password in gradle properties
-        run: sed -i 's/#{ANDROID_KEYSTORE_PASS}#/${{ secrets.ANDROID_KEYSTORE_PASS }}/g' android/key.properties
-      - name: Update KeyStore key password in gradle properties
-        run: sed -i 's/#{ANDROID_KEYSTORE_KEY_PASS}#/${{ secrets.ANDROID_KEYSTORE_KEY_PASS }}/g' android/key.properties
-      - name: Retrieve the signing key and decode it to a file
-        env:
-          ANDROID_SIGNING_KEY: ${{ secrets.ANDROID_SIGNING_KEY }}
-        run: |
-          echo $ANDROID_SIGNING_KEY | base64 --decode > android/app/fordem.jks
-      - uses: actions/setup-java@v2
-        with:
-          distribution: "zulu"
-          java-version: "11"
       - uses: subosito/flutter-action@v2
         with:
-          channel: "master"
+          channel: "stable"
       - run: flutter pub get
       - run: flutter test
       - name: Build Web
