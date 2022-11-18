@@ -8,7 +8,7 @@ import 'package:app/grpc/generated/google/protobuf/empty.pb.dart';
 import 'package:app/grpc/generated/wall.pbgrpc.dart';
 import 'package:app/grpc/generated/auth.pbgrpc.dart';
 import 'package:grpc/grpc_or_grpcweb.dart';
-import 'package:window_location_href/window_location_href.dart';
+//import 'package:window_location_href/window_location_href.dart';
 
 const _serverAddress = String.fromEnvironment('SERVER_ADDRESS',
     defaultValue:
@@ -19,23 +19,23 @@ Wall wall(KeyPair keyPair) => Wall._(keyPair);
 Auth auth(KeyPair keyPair) => Auth._(keyPair);
 
 String _getAddress() {
-  final location = href;
-  if (location != null) {
-    final url = Uri.tryParse(location)!;
+  // final location = href;
+  // if (location != null) {
+  //   final url = Uri.tryParse(location)!;
 
-    return url.host;
-  }
+  //   return url.host;
+  // }
 
   return _serverAddress;
 }
 
 int _getPort() {
-  final location = href;
-  if (location != null) {
-    final url = Uri.tryParse(location)!;
+  // final location = href;
+  // if (location != null) {
+  //   final url = Uri.tryParse(location)!;
 
-    return url.port;
-  }
+  //   return url.port;
+  // }
 
   return _serverPort;
 }
