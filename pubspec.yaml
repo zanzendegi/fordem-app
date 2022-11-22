@@ -37,6 +37,8 @@ dependencies:
   protobuf: any
   wallet: any
   window_location_href: any
+  shared_preferences: any
+  
 
 dev_dependencies:
   flutter_test:
